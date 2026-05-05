@@ -302,6 +302,139 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Примеры работ */}
+      <section id="works" className="py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">ПРИМЕРЫ РАБОТ</h2>
+            <p className="text-xl text-muted-foreground">Реальные объекты — дачи наших клиентов</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="overflow-hidden group">
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src="https://cdn.poehali.dev/projects/df4516e4-5143-4099-a157-9ec26ab3ef20/files/025decae-98c2-4568-be36-ac3ff300263d.jpg"
+                  alt="Замена кровли — до и после"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="p-5">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="font-bold text-lg">Замена кровли под ключ</h3>
+                  <Badge variant="secondary">Металлочерепица</Badge>
+                </div>
+                <p className="text-muted-foreground text-sm">Дача 80 кв.м., Подмосковье. Полный демонтаж и монтаж за 4 дня.</p>
+              </div>
+            </Card>
+
+            <Card className="overflow-hidden group">
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src="https://cdn.poehali.dev/projects/df4516e4-5143-4099-a157-9ec26ab3ef20/files/0bb8c61b-51b4-47cd-9503-ea19e5d46220.jpg"
+                  alt="Монтаж металлической кровли"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="p-5">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="font-bold text-lg">Монтаж профнастила</h3>
+                  <Badge variant="secondary">Профнастил</Badge>
+                </div>
+                <p className="text-muted-foreground text-sm">Загородный дом 120 кв.м. Усиление стропил + новое покрытие за 5 дней.</p>
+              </div>
+            </Card>
+
+            <Card className="overflow-hidden group">
+              <div className="aspect-video overflow-hidden">
+                <img
+                  src="https://cdn.poehali.dev/projects/df4516e4-5143-4099-a157-9ec26ab3ef20/files/ba6499e1-ef68-4916-9d52-9bb962ff25d0.jpg"
+                  alt="Ремонт мягкой кровли"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div className="p-5">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="font-bold text-lg">Ремонт мягкой кровли</h3>
+                  <Badge variant="secondary">Рубероид</Badge>
+                </div>
+                <p className="text-muted-foreground text-sm">Дача 60 кв.м. Устранение протечек, укладка нового материала за 1 день.</p>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Отзывы */}
+      <section className="py-20 bg-secondary/30">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">ОТЗЫВЫ КЛИЕНТОВ</h2>
+            <p className="text-xl text-muted-foreground">Что говорят владельцы дач после наших работ</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="p-6">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Icon key={i} name="Star" className="w-5 h-5 text-primary fill-primary" />
+                ))}
+              </div>
+              <p className="text-muted-foreground mb-6 text-pretty">
+                «Отличная бригада! Приехали в день звонка, быстро оценили объём работ. Кровлю заменили за 3 дня, всё чисто убрали за собой. Крыша уже пережила два сезона — ни одной протечки!»
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                  <Icon name="User" className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <div className="font-semibold">Сергей Михайлов</div>
+                  <div className="text-sm text-muted-foreground">Дача в Серпухове</div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Icon key={i} name="Star" className="w-5 h-5 text-primary fill-primary" />
+                ))}
+              </div>
+              <p className="text-muted-foreground mb-6 text-pretty">
+                «Долго не могла найти нормальных кровельщиков. Здесь всё по-человечески: смету дали письменно, цену не меняли в процессе, работали аккуратно. Рекомендую всем соседям по СНТ!»
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                  <Icon name="User" className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <div className="font-semibold">Елена Васильева</div>
+                  <div className="text-sm text-muted-foreground">Дача в Чехове</div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6">
+              <div className="flex gap-1 mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Icon key={i} name="Star" className="w-5 h-5 text-primary fill-primary" />
+                ))}
+              </div>
+              <p className="text-muted-foreground mb-6 text-pretty">
+                «Вызвали по срочной протечке — мастер приехал на следующий день. Устранили течь быстро и недорого. Заодно осмотрели всю кровлю и показали, что ещё нужно сделать. Честные ребята!»
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                  <Icon name="User" className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <div className="font-semibold">Андрей Козлов</div>
+                  <div className="text-sm text-muted-foreground">Дача в Домодедово</div>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* CTA секция */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
@@ -314,9 +447,9 @@ const Index = () => {
             <Button size="lg" className="text-lg px-8">
               Вызвать мастера бесплатно
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent">
+            <Button variant="outline" size="lg" className="text-lg px-8 bg-transparent" onClick={() => window.location.href = 'tel:+79051484090'}>
               <Icon name="Phone" className="w-4 h-4 mr-2" />
-              Позвонить нам
+              +7 (905) 148-40-90
             </Button>
           </div>
         </div>
@@ -413,7 +546,7 @@ const Index = () => {
                 <p>Московская область</p>
                 <p>Выезд по всему Подмосковью</p>
                 <p>Пн–Вс 8:00 – 20:00</p>
-                <p>+7 (000) 000-00-00</p>
+                <p>+7 (905) 148-40-90</p>
               </div>
             </div>
             <div>
