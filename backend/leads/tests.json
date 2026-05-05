@@ -1,0 +1,22 @@
+{
+  "tests": [
+    {
+      "name": "Отправка заявки",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Иван Петров", "phone": "+7 999 123-45-67", "message": "Нужен ремонт кровли"},
+      "expectedStatus": 200,
+      "expectedBody": {"success": true},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Ошибка без телефона",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Иван"},
+      "expectedStatus": 400,
+      "bodyMatcher": "partial",
+      "expectedBody": {}
+    }
+  ]
+}

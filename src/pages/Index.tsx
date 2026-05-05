@@ -1,9 +1,37 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
 
+const LEADS_URL = "https://functions.poehali.dev/3caa69b4-01f4-48de-8c3a-fa5c86880be2";
+
 const Index = () => {
+  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const res = await fetch(LEADS_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setForm({ name: "", phone: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Навигация */}
@@ -291,6 +319,69 @@ const Index = () => {
               Позвонить нам
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Форма заявки */}
+      <section id="contact" className="py-20 bg-secondary/50">
+        <div className="max-w-2xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl font-bold mb-4">ОСТАВЬТЕ ЗАЯВКУ</h2>
+            <p className="text-xl text-muted-foreground">
+              Перезвоним в течение 30 минут и согласуем бесплатный выезд на замер
+            </p>
+          </div>
+          <Card className="p-8">
+            {status === "success" ? (
+              <div className="text-center py-8">
+                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon name="CheckCircle" className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold mb-2">Заявка принята!</h3>
+                <p className="text-muted-foreground">Перезвоним вам в течение 30 минут</p>
+                <Button className="mt-6" onClick={() => setStatus("idle")}>Отправить ещё</Button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Ваше имя *</label>
+                  <Input
+                    placeholder="Иван Иванович"
+                    value={form.name}
+                    onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Номер телефона *</label>
+                  <Input
+                    placeholder="+7 (999) 000-00-00"
+                    value={form.phone}
+                    onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Опишите задачу</label>
+                  <Textarea
+                    placeholder="Например: нужна замена кровли на даче 60 кв.м., протекает в нескольких местах"
+                    rows={4}
+                    value={form.message}
+                    onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+                  />
+                </div>
+                {status === "error" && (
+                  <p className="text-red-500 text-sm">Ошибка отправки. Попробуйте ещё раз.</p>
+                )}
+                <Button type="submit" size="lg" className="w-full text-lg" disabled={status === "loading"}>
+                  {status === "loading" ? "Отправляем..." : "Отправить заявку"}
+                </Button>
+                <p className="text-xs text-muted-foreground text-center">
+                  Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+                </p>
+              </form>
+            )}
+          </Card>
         </div>
       </section>
 
