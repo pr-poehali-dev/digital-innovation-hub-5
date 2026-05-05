@@ -38,7 +38,7 @@ const Index = () => {
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold tracking-tight">КРОВЛЯ ПОД КЛЮЧ</div>
+            <div className="text-2xl font-bold tracking-tight">СТРОЙ РЕМОНТ КРОВЛИ</div>
             <div className="hidden md:flex items-center space-x-8">
               <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
                 О нас
@@ -523,7 +523,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
-              <div className="text-2xl font-bold mb-4">КРОВЛЯ ПОД КЛЮЧ</div>
+              <div className="text-2xl font-bold mb-4">СТРОЙ РЕМОНТ КРОВЛИ</div>
               <p className="text-muted-foreground mb-6 max-w-md">
                 Ремонт и замена кровли на дачах и загородных домах. Работаем быстро, качественно,
                 с гарантией 5 лет.
